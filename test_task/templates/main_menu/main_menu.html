@@ -1,0 +1,10 @@
+<ul class="menu">
+    {% for item in parents %}
+        <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% if item.slug == active %}
+            {% for child_item in item.children.all %}
+                <li><a href="{{ child_item.url }}">{{ child_item.name }}</a></li>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>
